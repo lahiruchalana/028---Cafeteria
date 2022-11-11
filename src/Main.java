@@ -17,6 +17,13 @@ public class Main {
             ResultSet resultSet = statement.executeQuery(query);
             System.out.println("Successfully performed the SQL....");
 
+            while (resultSet.next()) {
+                String productData = "";
+                for (int i = 1; i <= 5; i++) {
+                    productData = productData + resultSet.getString(i) + " | ";
+                }
+                System.out.println(productData);
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
