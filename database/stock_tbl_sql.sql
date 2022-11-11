@@ -15,3 +15,6 @@ ALTER TABLE stock
 ADD CONSTRAINT fk_product
 FOREIGN KEY (product_id) REFERENCES product(id);
 
+SELECT * FROM stock
+INNER JOIN product ON product.id = stock.product_id;
+

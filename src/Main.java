@@ -8,6 +8,8 @@ public class Main {
         final String PASSWORD = "1111";
 
         String query = "SELECT * FROM product";
+        String getAllStock = "SELECT * FROM stock";
+        String postStock = "INSERT INTO stock (product_id, available_stock, backlog, measure) VALUE (1, 54, 12, 'cups')";
 
         try {
             Connection connection = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
@@ -24,6 +26,11 @@ public class Main {
                 }
                 System.out.println(productData);
             }
+
+            // insert data to stock
+            statement.executeUpdate(postStock);
+            System.out.println("Successfully performed the SQL....");
+
 
         } catch (SQLException e) {
             e.printStackTrace();
